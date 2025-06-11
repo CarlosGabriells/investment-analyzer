@@ -250,3 +250,4 @@ cache/
 # Local configuration files
 config.local.py
 settings.local.py
+CLAUDE.md

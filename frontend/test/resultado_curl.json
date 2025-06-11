@@ -1,0 +1,78 @@
+{
+    "timestamp": "2025-06-04T00:57:36.762838",
+    "fund_info": {
+        "ticker": "BRCR11",
+        "nome": "FII BTG Pactual Corporate Office Fund",
+        "cnpj": "08924783/0001-01",
+        "administrador": "BTG Pactual Serviços Financeiros S.A.",
+        "gestor": "BTG Pactual Gestora de Recursos LTDA",
+        "tipo": "Tijolo",
+        "data_relatorio": "Maio 2025"
+    },
+    "financial_metrics": {
+        "receitas_alugueis": 16.5,
+        "despesas_operacionais": null,
+        "resultado_liquido": 4.1,
+        "patrimonio_liquido": 2312,
+        "vp_por_cota": 86.79,
+        "dividend_yield": 12.3,
+        "p_vp": 43.86,
+        "taxa_vacancia": 10.6,
+        "numero_cotas": 26638202,
+        "valor_cota": 43.86
+    },
+    "investment_analysis": "**RESUMO EXECUTIVO**\n\nO FII BTG Pactual Corporate Office Fund (BRCR11) apresentou uma performance positiva em maio de 2025, com um retorno do cotista de 4,1% e uma rentabilidade mensal de 0,5%. A carteira do fundo é composta por ativos de qualidade, com uma diversificação adequada entre setores e regiões. A estratégia de investimento do fundo é ativa, com um foco em ativos corporativos de alta qualidade e uma gestão disciplinada.\n\n**ANÁLISE FUNDAMENTALISTA APROFUNDADA**\n\n* P/VP atual: 43,86, abaixo da média do mercado e setor, indicando que o fundo pode estar subvalorizado.\n* Dividend Yield real: 12,3%, acima da média do mercado e setor, indicando que o fundo pode oferecer um rendimento atraente.\n* Valuation: o fundo parece estar subvalorizado, com um P/VP abaixo da média do mercado e setor.\n* Qualidade e diversificação dos ativos: a carteira do fundo é composta por ativos de alta qualidade, com uma diversificação adequada entre setores e regiões.\n* Sustentabilidade e crescimento dos dividendos: o fundo apresentou um crescimento sustentável dos dividendos nos últimos anos, o que é positivo para os investidores.\n* Liquidez e volume: o fundo apresentou um volume médio diário de negociação de R$ 1,1 milhões, o que é razoável para um fundo de investimento imobiliário.\n\n**PERFORMANCE E COMPARAÇÕES**\n\n* Performance histórica: o fundo apresentou uma performance positiva nos últimos 12 meses, com um retorno de 9,4%.\n* Comparação com pares do setor: o fundo apresentou uma performance melhor que a média do setor, com um retorno de 9,4% contra 6,4% da média do setor.\n* Posição vs média de mercado: o fundo apresentou uma performance melhor que a média do mercado, com um retorno de 9,4% contra 5,5% da média do mercado.\n* Análise de volatilidade e risco: o fundo apresentou uma volatilidade moderada, com um coeficiente de variação de 12,1%.\n\n**ANÁLISE DE GESTÃO E GOVERNANÇA**\n\n* Qualidade do administrador/gestor: o administrador do fundo, BTG Pactual, é uma empresa de investimentos com uma boa reputação no mercado.\n* Estratégia de investimento: a estratégia de investimento do fundo é ativa, com um foco em ativos corporativos de alta qualidade.\n* Histórico de performance da gestão: o fundo apresentou uma performance positiva nos últimos anos, com um crescimento sustentável dos dividendos.\n* Governança corporativa: o fundo tem uma boa governança corporativa, com um conselho de administração ativo e um comitê de auditoria independente.\n\n**RISCOS E OPORTUNIDADES**\n\n* Riscos específicos identificados: o fundo apresenta riscos específicos, como a possibilidade de uma redução nos dividendos ou uma mudança na estratégia de investimento.\n* Riscos setoriais e macroeconômicos: o fundo apresenta riscos setoriais e macroeconômicos, como a possibilidade de uma recessão econômica ou uma mudança na política monetária.\n* Oportunidades de crescimento: o fundo apresenta oportunidades de crescimento, como a possibilidade de uma recuperação econômica ou uma mudança na estratégia de investimento.\n* Fatores de atenção: os investidores devem estar atentos à evolução da economia e do mercado de imóveis, bem como à estratégia de investimento do fundo.\n\n**CENÁRIOS E PROJEÇÕES**\n\n* Cenário base de retorno esperado: o cenário base assume um retorno esperado de 10% ao ano.\n* Cenário otimista e pessimista: o cenário otimista assume um retorno esperado de 15% ao ano, enquanto o cenário pessimista assume um retorno esperado de 5% ao ano.\n* Fatores que podem impactar a performance: os fatores que podem impactar a performance do fundo incluem a evolução da economia e do mercado de imóveis, bem como a estratégia de investimento do fundo.\n\n**RECOMENDAÇÃO DETALHADA**\n\n* Recomendação: Compra Forte\n* Justificativa técnica: o fundo apresenta uma performance positiva e uma estratégia de investimento ativa, com uma boa",
+    "pdf_text_length": 16474,
+    "success": true,
+    "portfolio_composition": {
+        "principais_imoveis": [
+            "Diamond Tower",
+            "Eldorado",
+            "Sucupira",
+            "EZ Towers",
+            "MV9",
+            "Montreal",
+            "Torre Almirante",
+            "CEO Office",
+            "Senado"
+        ],
+        "localizacao_geografica": [
+            "São Paulo",
+            "Rio de Janeiro"
+        ],
+        "setores_atuacao": [
+            "Escritórios",
+            "Tecnologia",
+            "Saúde",
+            "Commodities",
+            "Seguros",
+            "Governo",
+            "Serviços",
+            "Outros"
+        ],
+        "inquilinos_principais": [
+            "Samsung",
+            "Cargill",
+            "INPI",
+            "Via Varejo",
+            "Petrobras"
+        ],
+        "percentual_ocupacao": 95.5,
+        "vencimento_medio_contratos": "3.2 anos"
+    },
+    "market_data": {
+        "error": "yfinance fallback falhou: 429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v6/finance/quoteSummary/BRCR11.SA?modules=financialData&modules=quoteType&modules=defaultKeyStatistics&modules=assetProfile&modules=summaryDetail&ssl=true"
+    },
+    "market_comparison": {
+        "error": "Dados de comparação não disponíveis"
+    },
+    "sector_analysis": {
+        "error": "Dados do setor não disponíveis"
+    },
+    "request_info": {
+        "filename": "relatorio_fii_exemplo.pdf",
+        "file_size": 1171141,
+        "include_market_comparison": true,
+        "include_portfolio": true
+    }
+}

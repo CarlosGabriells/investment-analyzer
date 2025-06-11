@@ -1,0 +1,19 @@
+.buttom-custom:hover svg {
+    color: white;
+}
+
+.tr-custom:hover td {
+    color: white;
+}
+
+.tr-custom:hover td button svg {
+    color: white;
+}
+
+.tr-custom:hover td button {
+    color: white;
+}
+
+.text-delete p:first-child {
+    display: none;
+}

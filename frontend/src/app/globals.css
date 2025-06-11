@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+body {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+@theme {
+  --color-bgDark: #151B24;
+  --color-bgTable: #1D232C;
+  --color-fontWhite: #ffffff;
+  --color-fontGray: #A9A9A9;
+  --color-fontLightGray: #fdfdfd;
+  --color-borderGray: #2C3340;
+  --color-tableHead: #23303E;
+  --color-fontBlue: #40ABDB;
+  --color-frontBlueHover: #3b90b6;
+  --font-roboto: "Roboto", sans-serif;
+  --shadow-boxShadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

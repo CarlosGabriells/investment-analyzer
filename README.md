@@ -1,170 +1,196 @@
-# 🏢 FII PDF Analyzer - Sistema de Análise de Fundos Imobiliários
+# 📊 FII PDF Analyzer - Sistema de Análise de Relatórios de FIIs
 
-Sistema inteligente para análise automática de relatórios de Fundos de Investimento Imobiliário (FIIs) usando IA e dados de mercado em tempo real.
+Um sistema completo para análise inteligente de relatórios de Fundos de Investimento Imobiliário (FIIs) utilizando inteligência artificial.
 
-## 🎯 O que faz este sistema?
+## 📖 Descrição
 
-- **📄 Extrai dados de PDFs**: Informações do fundo, métricas financeiras e composição da carteira
-- **🤖 Análise com IA**: Usa Groq AI para interpretação inteligente dos documentos
-- **📊 Dados de mercado**: Integra cotações e comparações em tempo real via brapi.dev e yfinance
-- **💡 Análise completa**: Gera recomendações de investimento baseadas em dados fundamentais
+O **FII PDF Analyzer** é uma aplicação full-stack que permite:
 
+- **Upload de PDFs**: Upload de relatórios de FIIs em formato PDF  
+- **Análise com IA**: Extração e análise inteligente dos dados usando Groq AI
+- **Métricas Financeiras**: Cálculo automático de indicadores como Dividend Yield, P/VP, etc.
+- **Rankings**: Comparação e ranking de FIIs por diferentes critérios
+- **Dashboard Web**: Interface moderna para visualização dos resultados
+- **Cache Inteligente**: Sistema de cache para otimização de performance
 
-## 🚀 Quick Start
+## ⚡ Funcionalidades
 
-### 1. Clone e Configure
+### 🧠 Análise Inteligente
+
+- Extração automática de texto de PDFs usando PyPDF2
+- Análise estruturada em 14 pontos principais usando IA (Groq)
+- Identificação de métricas financeiras chave
+- Avaliação de riscos e oportunidades
+
+### 📊 Métricas Calculadas
+
+- **Dividend Yield**: Rendimento dividendo
+- **P/VP**: Preço sobre Valor Patrimonial
+- **Receitas de Aluguéis**: Receitas operacionais
+- **Taxa de Vacância**: Percentual de vacância
+- **Alavancagem**: Nível de endividamento
+- **Liquidez**: Análise de liquidez das cotas
+
+### 🏆 Sistema de Rankings
+
+- Ranking por Dividend Yield (maior para menor)
+- Ranking por P/VP (menor para maior)
+- Comparações entre múltiplos FIIs por sessão
+
+### 🎨 Interface Moderna
+
+- Dashboard responsivo com Tailwind CSS
+- Tabelas dinâmicas com busca e filtros
+- Relatórios IA com animação de digitação
+- Tema escuro otimizado
+
+## ⚙️ Instalação
+
+### Pré-requisitos
+- Python 3.11+
+- Node.js 18+
+- Git
+
+### 1. Clone o repositório
 ```bash
-git clone <repository>
+git clone https://github.com/seu-usuario/investment-analyzer.git
 cd investment-analyzer
+```
+
+### 2. Configuração do Backend
+```bash
+# Instalar dependências Python
+pip install -r backend/requirements.txt
+
+# Configurar variáveis de ambiente
 cp .env.example .env
-# Edite o .env com suas API keys
+# Edite o .env com suas configurações
 ```
 
-### 2. Instale Dependências
+### 3. Configuração do Frontend
 ```bash
-pip install -r requirements.txt
+# Navegar para o frontend
+cd frontend
+
+# Instalar dependências Node.js
+npm install
 ```
 
-### 3. Configure APIs
-```bash
-# Edite o arquivo .env
-GROQ_API_KEY=sua_chave_groq_aqui
-BRAPI_API_KEY=sua_chave_brapi_aqui
-```
+### Obter Chave da API Groq
+1. Acesse [console.groq.com](https://console.groq.com)
+2. Crie uma conta gratuita
+3. Gere uma API Key
+4. Adicione no arquivo `.env`
 
-### 4. Teste a Configuração
-```bash
-python testar_configuracao.py
-```
+## 🚀 Uso
 
-### 5. Execute o Sistema
+#### Backend
 ```bash
-# Opção 1: Docker (recomendado)
-docker-compose up
-
-# Opção 2: Local
+# Inicializar banco de dados
 cd backend
+python init_db.py
+
+# Iniciar servidor de desenvolvimento
 python main.py
 ```
 
-### 6. Teste com PDF
+#### Frontend
 ```bash
+# Em outro terminal
+cd frontend
+npm run dev
+```
+
+### Teste Prático
+```bash
+# Testar com cURL
 cd teste
 ./testar_curl.sh
 ```
 
-## 🔧 APIs Necessárias
+## 📡 API Endpoints
 
-| API | Status | Função | Como Obter |
-|-----|--------|--------|------------|
-| 🤖 **Groq** | Obrigatória | IA para análise | [console.groq.com](https://console.groq.com/) |
-| 📊 **brapi.dev** | Recomendada | Dados de mercado | [brapi.dev/dashboard](https://brapi.dev/dashboard) |
+### 📤 Upload e Análise
+```http
+POST /analyze
+Content-Type: multipart/form-data
 
-📖 **Guia completo**: [CONFIGURACAO_APIS.md](CONFIGURACAO_APIS.md)
-
-## 📊 Exemplo de Resposta
-
-```json
-{
-  "fund_info": {
-    "ticker": "BRCR11",
-    "nome": "FII BTG Pactual Corporate Office Fund",
-    "tipo": "Tijolo",
-    "administrador": "BTG Pactual"
-  },
-  "financial_metrics": {
-    "receitas_alugueis": 16.5,
-    "despesas_operacionais": 2.3,  // ✅ Agora funciona!
-    "dividend_yield": 12.3,
-    "p_vp": 43.86
-  },
-  "market_data": {  // ✅ Agora funciona com brapi.dev!
-    "current_price": 43.86,
-    "change_percent": 1.2,
-    "source": "brapi.dev"
-  },
-  "investment_analysis": "Análise completa com IA...",
-  "portfolio_composition": {
-    "principais_imoveis": ["Diamond Tower", "Eldorado"],
-    "percentual_ocupacao": 95.5
-  }
-}
+Form Data:
+- pdf_file: arquivo PDF
+- session_id: ID da sessão (opcional)
 ```
 
-## 🏗️ Arquitetura do Sistema
-
-```
-📱 Frontend (Next.js)
-    ↓
-🔗 API Gateway (FastAPI)
-    ↓
-📄 PDF Analyzer (PyPDF2 + OCR)
-    ↓
-🤖 IA Analysis (Groq)
-    ↓
-📊 Market Data (brapi.dev + yfinance)
-    ↓
-📈 Enhanced Analysis
+### 🏆 Rankings
+```http
+GET /ranking/dividend_yield?session_id=SESSION_ID
+GET /ranking/pvp?session_id=SESSION_ID
 ```
 
-## 📁 Estrutura do Projeto
+### 🔍 Consultas
+```http
+GET /analysis/SESSION_ID
+GET /analysis/SESSION_ID/FII_CODE
+GET /health
+```
+
+### 📚 Documentação Interativa
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+
+## 🏗 Arquitetura
 
 ```
 investment-analyzer/
-├── 📄 backend/           # API Python (FastAPI)
-│   ├── main.py          # Ponto de entrada
-│   ├── api.py           # Endpoints da API
-│   ├── pdf_analyzer.py  # Core da análise
-│   ├── market_data.py   # Dados de mercado
-│   └── config.py        # Configurações
-├── 🎨 frontend/         # Interface (Next.js)
-├── 🧪 teste/           # Scripts de teste
-├── 🐳 docker-compose.yml # Deploy com Docker
-└── 📚 docs/            # Documentação
+├── backend/                 # API Python
+│   ├── analysis/           # Módulos de análise
+│   │   ├── pdf_analyzer.py # Análise de PDFs com IA
+│   │   └── simple_ranking.py # Sistema de rankings
+│   ├── api/                # Endpoints da API
+│   │   └── endpoints.py    # Rotas principais
+│   ├── database/           # Camada de dados
+│   │   └── simple_cache.py # Cache em memória  
+│   ├── models/             # Modelos de dados
+│   │   ├── base.py         # Configuração SQLAlchemy
+│   │   └── simple_models.py # Modelos de BD
+│   ├── config.py           # Configurações
+│   ├── main.py             # Entry point
+│   └── requirements.txt    # Dependências Python
+├── frontend/               # Interface Next.js
+│   ├── src/
+│   │   ├── app/           # App Router
+│   │   ├── components/    # Componentes React
+│   │   └── utils/         # Utilitários e tipos
+│   └── package.json       # Dependências Node.js
+├── teste/                 # Scripts de teste
+├── Dockerfile             # Container backend
+├── docker-compose.yml     # Orquestração
+└── .env.example          # Configurações exemplo
 ```
 
-## 🧪 Testes
+## 💾 Banco de Dados
 
-### Teste Rápido
-```bash
-python testar_configuracao.py
+### Estrutura
+
+#### Tabela `fii_analysis`
+```sql
+- id: PRIMARY KEY
+- session_id: Agrupamento por sessão
+- fii_code: Código do FII (BRCR11, etc.)
+- fii_name: Nome do fundo
+- fund_info: JSON com dados básicos
+- financial_metrics: JSON com métricas
+- detailed_analysis: JSON com análise IA
+- pdf_filename: Nome do arquivo original
+- created_at: Timestamp de criação
 ```
 
-### Teste Completo
-```bash
-cd teste
-./testar_curl.sh
+#### Tabela `simple_ranking`
+```sql
+- id: PRIMARY KEY  
+- session_id: ID da sessão
+- criteria: Critério do ranking
+- fii_code: Código do FII
+- position: Posição no ranking
+- score: Pontuação/valor
+- created_at: Timestamp
 ```
-
-### Teste das APIs
-```bash
-# Teste Groq
-curl -X POST "http://localhost:8000/health"
-
-# Teste brapi.dev
-curl "https://brapi.dev/api/quote/PETR4?token=SUA_CHAVE"
-```
-
-## 🎯 Próximas Melhorias
-
-- [ ] Cache local para reduzir calls às APIs
-- [ ] Interface web completa
-- [ ] Suporte a múltiplos PDFs
-- [ ] Análise comparativa entre FIIs
-- [ ] Dashboard de acompanhamento
-- [ ] Integração com mais fontes de dados
-
-## 📞 Suporte
-
-1. **Problemas de configuração**: Consulte [CONFIGURACAO_APIS.md](CONFIGURACAO_APIS.md)
-2. **Teste de diagnóstico**: Execute `python testar_configuracao.py`
-3. **Logs detalhados**: Verifique `fii_analyzer.log`
-4. **Issues**: Abra uma issue no repositório
-
-## 📄 Licença
-
-MIT License - veja LICENSE para detalhes.
-
----
-
-**💡 Dica**: Execute `python testar_configuracao.py` antes de usar para verificar se tudo está funcionando!

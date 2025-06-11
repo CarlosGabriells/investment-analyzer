@@ -13,7 +13,6 @@ class Settings:
     
     # API Keys
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    BRAPI_API_KEY: str = os.getenv("BRAPI_API_KEY", "")
     
     # Configurações da API
     API_HOST: str = os.getenv("API_HOST", "0.0.0.0")
@@ -27,18 +26,9 @@ class Settings:
     MAX_FILE_SIZE: int = int(os.getenv("MAX_FILE_SIZE", "50")) * 1024 * 1024  # 50MB default
     ALLOWED_EXTENSIONS: list = [".pdf"]
     
-    # Configurações de análise
-    DEFAULT_ANALYSIS_MODEL: str = os.getenv("ANALYSIS_MODEL", "llama3-8b-8192")
-    MAX_PDF_TEXT_LENGTH: int = int(os.getenv("MAX_PDF_TEXT_LENGTH", "30000")) # Reduzido para melhor performance
-    
-    # Parâmetros de IA
-    TEMPERATURE: float = float(os.getenv("AI_TEMPERATURE", "0.3"))
-    MAX_TOKENS: int = int(os.getenv("AI_MAX_TOKENS", "4000")) # Reduzido para melhor performance
-    
-    # Configurações de Embeddings e Cache
-    EMBEDDINGS_MODEL: str = os.getenv("EMBEDDINGS_MODEL", "all-MiniLM-L6-v2")
-    CACHE_TTL_HOURS: int = int(os.getenv("CACHE_TTL_HOURS", "24"))
-    SESSION_TTL_HOURS: int = int(os.getenv("SESSION_TTL_HOURS", "168"))  # 1 semana
+    # Configurações de análise com IA
+    ANALYSIS_MODEL: str = os.getenv("ANALYSIS_MODEL", "llama3-70b-8192")
+    MAX_PDF_TEXT_LENGTH: int = int(os.getenv("MAX_PDF_TEXT_LENGTH", "25000"))
     
     # Logging
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
@@ -68,8 +58,7 @@ class Settings:
                 "api_host": cls.API_HOST,
                 "api_port": cls.API_PORT,
                 "max_file_size_mb": cls.MAX_FILE_SIZE // (1024 * 1024),
-                "analysis_model": cls.DEFAULT_ANALYSIS_MODEL,
-                "embeddings_model": cls.EMBEDDINGS_MODEL,
+                "analysis_model": cls.ANALYSIS_MODEL,
                 "database_url": cls.DATABASE_URL,
                 "log_level": cls.LOG_LEVEL
             }

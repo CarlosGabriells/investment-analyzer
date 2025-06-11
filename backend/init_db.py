@@ -11,8 +11,8 @@ from pathlib import Path
 backend_dir = Path(__file__).parent
 sys.path.insert(0, str(backend_dir))
 
-from backend.models.base import init_db, engine
-from backend.models.fii_models import Base
+from models.base import init_db, engine, Base
+from models.simple_models import FIIAnalysis, SimpleRanking
 import logging
 
 # Configurar logging

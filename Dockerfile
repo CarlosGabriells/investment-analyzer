@@ -12,14 +12,10 @@ ENV PYTHONUNBUFFERED=1 \
 WORKDIR /app
 
 # Instalar dependências do sistema necessárias
-# Inclui tesseract-ocr e poppler-utils para funcionalidades de OCR
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
     curl \
-    tesseract-ocr \
-    libtesseract-dev \
-    poppler-utils \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
@@ -36,8 +32,8 @@ COPY backend/ ./backend/
 # Criar diretório para uploads e dados
 RUN mkdir -p /app/uploads /app/data /app/logs
 
-# Copiar arquivo de configuração de exemplo
-COPY backend/.env.example ./backend/.env
+# Copiar arquivo de configuração de exemplo (se existir)
+COPY .env.example .env
 
 # Definir o caminho Python
 ENV PYTHONPATH=/app
@@ -50,4 +46,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
 # Comando padrão para iniciar a aplicação
-CMD ["sh", "-c", "cd /app && python -m backend.init_db && python -m backend.main"]
+CMD ["sh", "-c", "cd /app/backend && python init_db.py && python main.py"]

@@ -9,11 +9,10 @@ import os
 from typing import Optional
 
 class Base(DeclarativeBase):
-    """Base class for all database models"""
     pass
 
 # Database configuration
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///app/data/fii_analyzer.db")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./fii_analyzer.db")
 
 # Create database directory if it doesn't exist
 if "sqlite:///" in DATABASE_URL:

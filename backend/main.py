@@ -13,8 +13,8 @@ backend_dir = Path(__file__).parent
 sys.path.insert(0, str(backend_dir))
 
 try:
-    from backend.config import settings
-    from backend.api.endpoints import app
+    from config import settings
+    from api.endpoints import app
     import uvicorn
 except ImportError as e:
     print(f"❌ Erro ao importar dependências: {e}")
@@ -80,7 +80,7 @@ def main():
     try:
         # Iniciar servidor
         uvicorn.run(
-            "backend.api.endpoints:app",
+            "api.endpoints:app",
             host=settings.API_HOST,
             port=settings.API_PORT,
             reload=settings.API_RELOAD,

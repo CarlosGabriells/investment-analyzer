@@ -25,11 +25,9 @@ echo "📤 Enviando PDF para análise..."
 echo "⏳ Aguarde..."
 
 # Fazer o upload
-curl -X POST "http://localhost:8000/analyze-pdf" \
+curl -X POST "http://localhost:8000/analyze" \
      -H "accept: application/json" \
      -F "pdf_file=@relatorio_fii_exemplo.pdf" \
-     -F "include_market_comparison=true" \
-     -F "include_portfolio=true" \
      -o resultado_curl.json \
      -w "Status HTTP: %{http_code}\nTempo: %{time_total}s\n"
 

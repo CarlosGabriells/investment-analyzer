@@ -22,9 +22,12 @@ export default function AiReport({ text }: AiReportProps) {
     setAnimatedText('');
     setIsTyping(true);
 
-    const delayTimer = setTimeout(() => {
+    let delayTimer: NodeJS.Timeout;
+    let typingInterval: NodeJS.Timeout;
+
+    delayTimer = setTimeout(() => {
       let index = 1;
-      const typingInterval = setInterval(() => {
+      typingInterval = setInterval(() => {
         const current = text.substring(0, index);
         setAnimatedText(current);
         index++;
@@ -36,10 +39,26 @@ export default function AiReport({ text }: AiReportProps) {
       }, 5);
     }, 1000);
 
-    return () => clearTimeout(delayTimer);
+    return () => {
+      clearTimeout(delayTimer);
+      if (typingInterval) {
+        clearInterval(typingInterval);
+      }
+    };
   }, [text]);
 
   const renderFormattedText = (rawText: string) => {
+    // Check if the text contains HTML (new layout format)
+    if (rawText.includes('<div class="analysis-container"')) {
+      return (
+        <div 
+          className="w-full"
+          dangerouslySetInnerHTML={{ __html: rawText }}
+        />
+      );
+    }
+
+    // Legacy markdown-style formatting
     const normalizedText = rawText.replace(/\n{2,}/g, '');
     const parts = normalizedText.split(/(\*\*[^*]+\*\*)/g);
 
@@ -73,9 +92,13 @@ export default function AiReport({ text }: AiReportProps) {
         </p>
       </div>
 
-      <div className="text-delete flex flex-col pt-4 sm:p-4 whitespace-pre-line min-h-[120px]">
-        {isTyping && <span className="flex flex-row gap-2 items-center text-sm text-fontLightGray animate-pulse pb-2"><Hourglass className='w-[18px]'/> Gerando relatório...</span>}
-        {animatedText ? renderFormattedText(animatedText) : 'Gere um relatório para visualizar aqui.'}
+      <div className={`text-delete flex flex-col pt-4 min-h-[120px] ${
+        animatedText && animatedText.includes('<div class="analysis-container"') 
+          ? 'sm:p-0' // Remove padding for HTML content
+          : 'sm:p-4 whitespace-pre-line'
+      }`}>
+        {isTyping && <span className="flex flex-row gap-2 items-center text-sm text-fontLightGray animate-pulse pb-2 px-4"><Hourglass className='w-[18px]'/> Gerando relatório...</span>}
+        {animatedText ? renderFormattedText(animatedText) : <div className="px-4">Gere um relatório para visualizar aqui.</div>}
       </div>
     </div>
   );

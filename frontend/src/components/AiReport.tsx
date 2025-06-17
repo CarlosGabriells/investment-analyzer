@@ -52,7 +52,7 @@ export default function AiReport({ text }: AiReportProps) {
     if (rawText.includes('<div class="analysis-container"')) {
       return (
         <div 
-          className="w-full"
+          className="w-full overflow-x-auto break-words"
           dangerouslySetInnerHTML={{ __html: rawText }}
         />
       );
@@ -74,7 +74,7 @@ export default function AiReport({ text }: AiReportProps) {
 
       return (
         <p
-          className="flex h-[100%] leading-[1.6] font-normal text-[16px] text-fontLightGray whitespace-pre-wrap pb-6"
+          className="flex h-full leading-[1.6] font-normal text-[16px] text-fontLightGray whitespace-pre-wrap pb-6 break-words overflow-wrap-anywhere"
           key={index}
         >
           {part}
@@ -84,21 +84,23 @@ export default function AiReport({ text }: AiReportProps) {
   };
 
   return (
-    <div className="flex flex-col bg-bgTable p-4 sm:rounded-[8px] w-[100%] max-w-[100%]">
+    <div className="flex flex-col bg-bgTable p-4 sm:rounded-[8px] w-full max-w-full overflow-hidden">
       <div>
-        <p className="flex flex-row gap-2 items-center text-[20px] pb-2 border-b-[1px] w-[100%] border-borderGray font-bold">
+        <p className="flex flex-row gap-2 items-center text-[20px] pb-2 border-b-[1px] w-full border-borderGray font-bold">
           <Brain />
           Relatório AI
         </p>
       </div>
 
-      <div className={`text-delete flex flex-col pt-4 min-h-[120px] ${
+      <div className={`text-delete flex flex-col pt-4 min-h-[120px] overflow-hidden ${
         animatedText && animatedText.includes('<div class="analysis-container"') 
           ? 'sm:p-0' // Remove padding for HTML content
           : 'sm:p-4 whitespace-pre-line'
       }`}>
         {isTyping && <span className="flex flex-row gap-2 items-center text-sm text-fontLightGray animate-pulse pb-2 px-4"><Hourglass className='w-[18px]'/> Gerando relatório...</span>}
-        {animatedText ? renderFormattedText(animatedText) : <div className="px-4">Gere um relatório para visualizar aqui.</div>}
+        <div className="overflow-x-auto">
+          {animatedText ? renderFormattedText(animatedText) : <div className="px-4">Gere um relatório para visualizar aqui.</div>}
+        </div>
       </div>
     </div>
   );

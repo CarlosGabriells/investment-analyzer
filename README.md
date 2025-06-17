@@ -163,7 +163,6 @@ investment-analyzer/
 │   └── package.json       # Dependências Node.js
 ├── teste/                 # Scripts de teste
 ├── Dockerfile             # Container backend
-├── docker-compose.yml     # Orquestração
 └── .env.example          # Configurações exemplo
 ```
 

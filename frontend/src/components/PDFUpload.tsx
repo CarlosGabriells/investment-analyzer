@@ -93,9 +93,9 @@ export default function PDFUpload() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-gray-800 rounded-lg border border-gray-600">
-      <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-        <FileText className="w-5 h-5" />
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 bg-gray-800 rounded-lg border border-gray-600">
+      <h2 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+        <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
         Upload de Relatório FII
       </h2>
 
@@ -103,20 +103,20 @@ export default function PDFUpload() {
       <div
         onDrop={handleDrop}
         onDragOver={handleDragOver}
-        className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors
+        className={`border-2 border-dashed rounded-lg p-4 sm:p-8 text-center transition-colors
           ${selectedFile 
             ? 'border-green-400 bg-green-400/10' 
             : 'border-gray-500 hover:border-gray-400 bg-gray-700/50'
           }`}
       >
-        <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-        <p className="text-gray-300 mb-2">
+        <Upload className="w-8 h-8 sm:w-12 sm:h-12 text-gray-400 mx-auto mb-4" />
+        <p className="text-gray-300 mb-2 text-sm sm:text-base px-2">
           {selectedFile 
             ? `Arquivo selecionado: ${selectedFile.name}`
             : 'Arraste um arquivo PDF aqui ou clique para selecionar'
           }
         </p>
-        <p className="text-sm text-gray-500 mb-4">
+        <p className="text-xs sm:text-sm text-gray-500 mb-4 px-2">
           {selectedFile 
             ? `Tamanho: ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB`
             : 'Apenas arquivos PDF de relatórios de FII são aceitos (máx. 50MB)'

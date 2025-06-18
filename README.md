@@ -137,35 +137,6 @@ GET /health
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
-## 🏗 Arquitetura
-
-```
-investment-analyzer/
-├── backend/                 # API Python
-│   ├── analysis/           # Módulos de análise
-│   │   ├── pdf_analyzer.py # Análise de PDFs com IA
-│   │   └── simple_ranking.py # Sistema de rankings
-│   ├── api/                # Endpoints da API
-│   │   └── endpoints.py    # Rotas principais
-│   ├── database/           # Camada de dados
-│   │   └── simple_cache.py # Cache em memória  
-│   ├── models/             # Modelos de dados
-│   │   ├── base.py         # Configuração SQLAlchemy
-│   │   └── simple_models.py # Modelos de BD
-│   ├── config.py           # Configurações
-│   ├── main.py             # Entry point
-│   └── requirements.txt    # Dependências Python
-├── frontend/               # Interface Next.js
-│   ├── src/
-│   │   ├── app/           # App Router
-│   │   ├── components/    # Componentes React
-│   │   └── utils/         # Utilitários e tipos
-│   └── package.json       # Dependências Node.js
-├── teste/                 # Scripts de teste
-├── Dockerfile             # Container backend
-└── .env.example          # Configurações exemplo
-```
-
 ## 💾 Banco de Dados
 
 ### Estrutura

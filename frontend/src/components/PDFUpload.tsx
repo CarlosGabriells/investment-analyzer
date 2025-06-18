@@ -146,7 +146,7 @@ export default function PDFUpload() {
           <Button
             onClick={handleUpload}
             disabled={isUploading}
-            className="w-full max-w-xs"
+            className="w-full max-w-xs flex items-center justify-center flex-row gap-2"
           >
             {isUploading ? (
               <>
@@ -168,7 +168,7 @@ export default function PDFUpload() {
             : 'bg-red-400/20 text-red-300 border-red-400/30'
           }`}
         >
-          <div className="flex items-start gap-2">
+          <div className="flex items-center justify-center gap-2">
             {uploadStatus === 'success' ? (
               <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
             ) : (
